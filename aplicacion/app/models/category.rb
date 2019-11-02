@@ -3,6 +3,6 @@ class Category < ApplicationRecord
  validates :name, presence: true, uniqueness: true
 
  #Relations
- has_one :products
+ has_many :products
 
 end

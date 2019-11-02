@@ -9,6 +9,6 @@ class Product < ApplicationRecord
   validates :categories, precense: true
 
   # -- Relations
-    has_many :tags
+    #has_many :tags
     belongs_to :category
 end
