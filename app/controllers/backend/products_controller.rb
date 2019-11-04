@@ -1,24 +1,21 @@
 module Backend
   class ProductsController < ApplicationController
-    before_action :set_image, only: [:show, :edit, :update, :destroy]
+    before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     def new
       @product = Product.new
     end
 
     def index
-      @product = Product.all
+      @products = Product.all
     end
 
     def create
-      #render plain: params[:product].inspect
       @product = Product.new(product_params)
       if @product.save
-    
         redirect_to backend_products_path
       else
-
-       render :new
+        render :new
      end
     end
 
@@ -41,6 +38,7 @@ module Backend
       ## strong parameters
       params.require(:product).permit(:name, :internalCode, :category_id, :tag_id, :praice, :cost, :content, :activo)
     end
+
     def set_product
       @product = Product.find(params[:id])
     end
