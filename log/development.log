@@ -9738,3 +9738,1281 @@ Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms)
 ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=1):
   
 app/controllers/backend/products_controller.rb:43:in `set_product'
+Started GET "/" for 127.0.0.1 at 2019-11-05 14:43:27 -0300
+  [1m[35m (52.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Frontend::MainController#index as HTML
+  Rendering frontend/main/index.html.erb within layouts/application
+  Rendered frontend/main/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 4870ms (Views: 4840.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-05 14:43:40 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  [1m[36mCategory Load (15.6ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:14
+  [1m[36mTag Load (2.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:23
+  Rendered backend/products/_form.html.erb (215.0ms)
+  Rendered backend/products/new.html.erb within layouts/application (232.5ms)
+Completed 200 OK in 498ms (Views: 249.0ms | ActiveRecord: 39.2ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-05 14:44:01 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5bGuo4jg3RjzgfyusmgeporPx/kBMVr2RUOZsmR3aoWNJir0LElmRqNUltZ+RR+5wh8kmbwzZV4Oi+yQXudi/Q==", "product"=>{"name"=>"ajakqja", "internalCode"=>"123", "paid"=>"1", "praice"=>"1818", "cost"=>"22", "description"=>"sdew"}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:15
+  [1m[36mProduct Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'ajakqja' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:15
+  [1m[36mProduct Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` = 123 LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:15
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:15
+  Rendering backend/products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:14
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:23
+  Rendered backend/products/_form.html.erb (4.8ms)
+  Rendered backend/products/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 350ms (Views: 40.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 14:56:07 -0300
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered backend/products/index.html.erb within layouts/application (40.6ms)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial backend/products/_flash_message, application/_flash_message with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/mayra/Documentos/aplicacionFrontBack/app/views"
+  * "/home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views"
+):
+    1: <h1 class='mt-2'>Productos</h1>
+    2: <%= render 'flash_message' %>
+    3: <table class="table table-bordered">
+    4:   <thead class="thead-light">
+    5:     <tr>
+  
+app/views/backend/products/index.html.erb:2:in `_app_views_backend_products_index_html_erb__4396030954514962113_46993842748420'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 14:58:12 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered backend/products/index.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial backend/products/_flash_message, application/_flash_message with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/mayra/Documentos/aplicacionFrontBack/app/views"
+  * "/home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views"
+):
+    1: <h1 class='mt-2'>Productos</h1>
+    2: <%= render 'flash_message' %>
+    3: <table class="table table-bordered">
+    4:   <thead class="thead-light">
+    5:     <tr>
+  
+app/views/backend/products/index.html.erb:2:in `_app_views_backend_products_index_html_erb__4396030954514962113_70327304511260'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 14:58:15 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered backend/products/index.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial backend/products/_flash_message, application/_flash_message with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/mayra/Documentos/aplicacionFrontBack/app/views"
+  * "/home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views"
+):
+    1: <h1 class='mt-2'>Productos</h1>
+    2: <%= render 'flash_message' %>
+    3: <table class="table table-bordered">
+    4:   <thead class="thead-light">
+    5:     <tr>
+  
+app/views/backend/products/index.html.erb:2:in `_app_views_backend_products_index_html_erb__4396030954514962113_70327475745080'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 14:59:46 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 322ms (Views: 320.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-05 14:59:49 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (26.4ms)
+  Rendered backend/products/new.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 84ms (Views: 63.2ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-05 15:00:01 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GWYvbWlbi2wzXbuQX/5yff81fKNZ6+8xFGug1rOHVd2dfgiI7veMIdgCFBB/6eX3GPymrL1CuMg7V4YrER9mrQ==", "product"=>{"name"=>"swkj", "internalCode"=>"1245", "paid"=>"1", "praice"=>"33", "cost"=>"44", "description"=>"sakjk"}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'swkj' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` = 1245 LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (192.5ms)
+  Rendered backend/products/_form.html.erb (194.4ms)
+  Rendered backend/products/new.html.erb within layouts/application (195.7ms)
+Completed 500 Internal Server Error in 243ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_flash_class' for #<#<Class:0x0000557b369b46d0>:0x0000557b371a7d60>):
+    1: <% flash.each do |key, value| %>
+    2:       <div class="alert alert-<%= get_flash_class(key) %>">
+    3:         <%= value %>
+    4:       </div>
+    5: <% end %>
+  
+app/views/application/_flash_message.html.erb:2:in `block in _app_views_application__flash_message_html_erb___1538093527713383557_46993849814660'
+app/views/application/_flash_message.html.erb:1:in `_app_views_application__flash_message_html_erb___1538093527713383557_46993849814660'
+app/views/backend/products/_form.html.erb:1:in `_app_views_backend_products__form_html_erb___2520079254177465428_46993848579280'
+app/views/backend/products/new.html.erb:3:in `_app_views_backend_products_new_html_erb__275657035120790497_46993847216940'
+app/controllers/backend/products_controller.rb:20:in `create'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 19:21:10 -0300
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (1.2ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 345ms (Views: 318.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-05 19:21:13 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (25.4ms)
+  Rendered backend/products/new.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 88ms (Views: 66.7ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-05 19:21:17 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o9Zk47hmAqWBsVmS5NGXdly/QjT4zw6Ivx6LgErI188nzkMGP8oF6Gru9hLExgD8u3aYOxxmWXGQIq196FDkvw==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (241.3ms)
+  Rendered backend/products/_form.html.erb (244.4ms)
+  Rendered backend/products/new.html.erb within layouts/application (245.4ms)
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_flash_class' for #<#<Class:0x000055a56727b2c8>:0x00007f7f75157830>):
+    1: <% flash.each do |key, value| %>
+    2:       <div class="alert alert-<%= get_flash_class(key) %>">
+    3:         <%= value %>
+    4:       </div>
+    5: <% end %>
+  
+app/views/application/_flash_message.html.erb:2:in `block in _app_views_application__flash_message_html_erb___331681054179539590_70092701279740'
+app/views/application/_flash_message.html.erb:1:in `_app_views_application__flash_message_html_erb___331681054179539590_70092701279740'
+app/views/backend/products/_form.html.erb:1:in `_app_views_backend_products__form_html_erb__1104437957685097113_70092701049440'
+app/views/backend/products/new.html.erb:3:in `_app_views_backend_products_new_html_erb___3365236049241240173_70092700952120'
+app/controllers/backend/products_controller.rb:20:in `create'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 19:28:46 -0300
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.7ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 44ms (Views: 42.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-05 19:28:48 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (8.3ms)
+  Rendered backend/products/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 59ms (Views: 55.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-05 19:28:49 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SY6E67/yB9sWm3NGZQlASclXGSBDrKUz+SOBAaP7uwLNlqMOOF4Alv3E3MZFHtfDLp7DL6cF8srWH6f8AWOIcg==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.5ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (8.7ms)
+  Rendered backend/products/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 66ms (Views: 53.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/product" for 127.0.0.1 at 2019-11-05 19:29:02 -0300
+  
+AbstractController::ActionNotFound (The action 'product' could not be found for Frontend::MainController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product" for 127.0.0.1 at 2019-11-05 19:29:32 -0300
+  
+AbstractController::ActionNotFound (The action 'product' could not be found for Frontend::MainController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product/backend" for 127.0.0.1 at 2019-11-05 19:29:38 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/product/backend"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product/backend/products" for 127.0.0.1 at 2019-11-05 19:29:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/product/backend/products"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product/backend/products" for 127.0.0.1 at 2019-11-05 19:29:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/product/backend/products"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 19:30:03 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  `products`.* FROM `products` LIMIT 11[0m
+  ↳ app/views/backend/products/index.html.erb:2
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` LIMIT 11[0m
+  ↳ app/views/backend/products/index.html.erb:2
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` LIMIT 11[0m
+  ↳ app/views/backend/products/index.html.erb:2
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` LIMIT 11[0m
+  ↳ app/views/backend/products/index.html.erb:2
+  Rendered application/_flash_message.html.erb (205.8ms)
+  Rendered backend/products/index.html.erb within layouts/application (207.3ms)
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_flash_class' for #<#<Class:0x000055a56727b2c8>:0x00007f7f75bfc9c0>):
+    1: <% flash.each do |key, value| %>
+    2:       <div class="alert alert-<%= get_flash_class(key) %>">
+    3:         <%= value %>
+    4:       </div>
+    5: <% end %>
+  
+app/views/application/_flash_message.html.erb:2:in `block in _app_views_application__flash_message_html_erb___331681054179539590_70092706565680'
+app/views/application/_flash_message.html.erb:1:in `_app_views_application__flash_message_html_erb___331681054179539590_70092706565680'
+app/views/backend/products/index.html.erb:2:in `_app_views_backend_products_index_html_erb___207017831504336304_70092706540000'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 22:05:32 -0300
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.7ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-05 22:05:34 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (7.9ms)
+  Rendered backend/products/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-05 22:05:37 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fSMBJ2Qvavc87DGuBN+uE959jreriI+AJcmZuym6KgL5OybC44Ntutezni4kyDmZObRUuE8h2HkK9b9GiyIZcg==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.7ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (9.5ms)
+  Rendered backend/products/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 63ms (Views: 48.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-05 22:06:05 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 53ms (Views: 51.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-05 22:06:06 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (7.5ms)
+  Rendered backend/products/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-05 22:06:08 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FenYHIQWhc+45nV55BCNjugn1JkR7R2rWGUgccib5T6R8f/5A7qCglO52vnEBxoED+4OlvVESlJ3WQaMagPWTg==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (7.6ms)
+  Rendered backend/products/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 55ms (Views: 42.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 00:16:02 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.9ms)
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 56ms (Views: 54.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 00:16:04 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.8ms)
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (10.7ms)
+  Rendered backend/products/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 85ms (Views: 82.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-06 00:16:06 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L3PiqQuy4bi+T1PmHstRE5pLMbq0YjVSNrBB61LVqSara8VMjB7m9VUQ/GY+3MaZfYLrtVDLYqsZjGcW8E2aVg==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.7ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (9.5ms)
+  Rendered backend/products/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 120ms (Views: 100.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/product" for 127.0.0.1 at 2019-11-06 00:16:11 -0300
+  
+AbstractController::ActionNotFound (The action 'product' could not be found for Frontend::MainController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product" for 127.0.0.1 at 2019-11-06 00:16:37 -0300
+  
+AbstractController::ActionNotFound (The action 'product' could not be found for Frontend::MainController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 00:16:52 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.6ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 00:17:01 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.8ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (10.1ms)
+  Rendered backend/products/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 51ms (Views: 48.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/product" for 127.0.0.1 at 2019-11-06 00:17:04 -0300
+  
+AbstractController::ActionNotFound (The action 'product' could not be found for Frontend::MainController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 00:17:56 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.6ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered backend/products/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 66ms (Views: 64.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 00:18:01 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.5ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (7.3ms)
+  Rendered backend/products/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 49ms (Views: 46.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-06 00:18:05 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gMFxT18mebZc/TP3tpPGWXrr1WgM4gtyZF4iWFYA610E2Vaq2Ip++7einHeWhFHTnSIPZ+hLXItLYgSl9JjYLQ==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.6ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (6.9ms)
+  Rendered backend/products/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 55ms (Views: 42.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 00:18:13 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.7ms)
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 45ms (Views: 43.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 00:18:18 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.6ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 00:18:20 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.7ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (8.9ms)
+  Rendered backend/products/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 52ms (Views: 49.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-06 00:18:31 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sRbE3BLvP2G9Lplwv+0HbF0IPh2/RnhV1f4dEEraBd01DuM5lUM4LFZxNvCf+pDmusHkElvvL6z6wjvt6EI2rQ==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.6ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (7.4ms)
+  Rendered backend/products/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 59ms (Views: 46.4ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-06 00:19:13 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LS09bR62aPb2eIOtE+qytd8U4vzH0pZCY5AUJLz+ZktFurk6uh/TqKat6dXfx7Oql8QBnHrQqeooWGEGhm5uMw==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 3.9ms)
+
+
+  
+NameError (undefined local variable or method `backend' for #<Backend::ProductsController:0x00007f7f744665b8>
+Did you mean?  backend_url):
+  
+app/controllers/backend/products_controller.rb:20:in `create'
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 00:19:47 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.8ms)
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 49ms (Views: 40.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 00:19:49 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb within layouts/application
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (19.2ms)
+  Rendered backend/products/new.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 98ms (Views: 82.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-06 00:19:51 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FIlsQSDfx9bPZCB0GxlGtzXiQCq/sMpxMkP+YHr7a1yQkUukp3PAmyQ7j/Q7DtE90iuaJVsZnYgdf9id2GNYLA==", "product"=>{"name"=>"", "internalCode"=>"", "paid"=>"0", "praice"=>"", "cost"=>"", "description"=>""}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` IS NULL LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:16
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.5ms)
+
+
+  
+ArgumentError (':backend' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+  
+app/controllers/backend/products_controller.rb:20:in `create'
+  [1m[35m (62.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('4781416663188500370', 0)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateActiveStorageTables (20191106133504)
+  [1m[35m (352.0ms)[0m  [1m[35mCREATE TABLE `active_storage_blobs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `key` varchar(255) NOT NULL, `filename` varchar(255) NOT NULL, `content_type` varchar(255), `metadata` text, `byte_size` bigint NOT NULL, `checksum` varchar(255) NOT NULL, `created_at` datetime NOT NULL, UNIQUE INDEX `index_active_storage_blobs_on_key`  (`key`))[0m
+  ↳ db/migrate/20191106133504_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (372.9ms)[0m  [1m[35mCREATE TABLE `active_storage_attachments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `record_type` varchar(255) NOT NULL, `record_id` bigint NOT NULL, `blob_id` bigint NOT NULL, `created_at` datetime NOT NULL,  INDEX `index_active_storage_attachments_on_blob_id`  (`blob_id`), UNIQUE INDEX `index_active_storage_attachments_uniqueness`  (`record_type`, `record_id`, `name`, `blob_id`), CONSTRAINT `fk_rails_c3b3935057`
+FOREIGN KEY (`blob_id`)
+  REFERENCES `active_storage_blobs` (`id`)
+)[0m
+  ↳ db/migrate/20191106133504_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (8.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191106133504')[0m
+  ↳ bin/rails:9
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('4781416663188500370')[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2019-11-06 13:37:23 -0300
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Frontend::MainController#index as HTML
+  Rendering frontend/main/index.html.erb within layouts/application
+  Rendered frontend/main/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6616ms (Views: 6608.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backend" for 127.0.0.1 at 2019-11-06 13:37:40 -0300
+Processing by Backend::MainController#index as HTML
+Completed 401 Unauthorized in 171ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-11-06 13:37:41 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/backend
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/backend (130.9ms)
+Completed 200 OK in 175ms (Views: 156.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-11-06 13:37:49 -0300
+Processing by Users::RegistrationsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-06 13:37:49 -0300
+Processing by Frontend::MainController#index as HTML
+  Rendering frontend/main/index.html.erb within layouts/application
+  Rendered frontend/main/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-11-06 13:41:59 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/backend
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/backend (4.1ms)
+Completed 200 OK in 1266ms (Views: 1264.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-11-06 13:43:57 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/backend
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/backend (5.0ms)
+Completed 200 OK in 1609ms (Views: 1607.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-11-06 13:44:05 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/backend
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/backend (5.6ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-11-06 13:44:16 -0300
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/backend
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/backend (21.3ms)
+Completed 200 OK in 485ms (Views: 447.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-11-06 13:45:11 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/backend
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/backend (4.7ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 13:45:30 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 13:45:38 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 13:46:42 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 13:46:51 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 13:46:54 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 13:49:14 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 13:49:22 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 13:49:36 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 13:49:39 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 13:50:13 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:55: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 13:53:55 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:46: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:46: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/" for 127.0.0.1 at 2019-11-06 13:54:00 -0300
+Processing by Backend::MainController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-11-06 13:54:00 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/backend
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/backend (4.1ms)
+Completed 200 OK in 34ms (Views: 18.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 13:54:10 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:46: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:46: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend" for 127.0.0.1 at 2019-11-06 13:54:25 -0300
+Processing by Backend::MainController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-11-06 13:54:25 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/backend
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/backend (8.5ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 13:54:37 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:46: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:46: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 13:54:59 -0300
+  
+SyntaxError (/home/mayra/Documentos/aplicacionFrontBack/app/controllers/backend/products_controller.rb:46: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/backend/products_controller.rb:46: syntax error, unexpected end-of-input, expecting end
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 14:00:58 -0300
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mayra/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb (5.8ms)
+Completed 200 OK in 108ms (Views: 6.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/backend/products" for 127.0.0.1 at 2019-11-06 14:01:10 -0300
+Processing by Backend::ProductsController#index as HTML
+  Rendering backend/products/index.html.erb
+  Rendered application/_flash_message.html.erb (0.7ms)
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  ↳ app/views/backend/products/index.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered backend/products/index.html.erb (4.4ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/backend/products/new" for 127.0.0.1 at 2019-11-06 14:01:12 -0300
+Processing by Backend::ProductsController#new as HTML
+  Rendering backend/products/new.html.erb
+  Rendered application/_flash_message.html.erb (0.5ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (22.8ms)
+  Rendered backend/products/new.html.erb (23.9ms)
+Completed 200 OK in 45ms (Views: 24.4ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/backend/products" for 127.0.0.1 at 2019-11-06 14:01:30 -0300
+Processing by Backend::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q9m+aHm4HqEefGpnEIBsoQMQ4tfk6npHX35h0r4OS6vOWH3PsnWVPMmpBwxsCxcSAWiJNwHynalzR9ozZAorCw==", "product"=>{"name"=>"ajsah", "internalCode"=>"23", "paid"=>"1", "praice"=>"222", "cost"=>"", "description"=>"22222"}, "commit"=>"Guardar"}
+Unpermitted parameters: :paid, :description
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/backend/products_controller.rb:15
+  [1m[36mProduct Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'ajsah' LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:15
+  [1m[36mProduct Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`internalCode` = 23 LIMIT 1[0m
+  ↳ app/controllers/backend/products_controller.rb:15
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/backend/products_controller.rb:15
+  Rendering backend/products/new.html.erb
+  Rendered application/_flash_message.html.erb (0.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  ↳ app/views/backend/products/_form.html.erb:15
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/backend/products/_form.html.erb:24
+  Rendered backend/products/_form.html.erb (7.8ms)
+  Rendered backend/products/new.html.erb (8.8ms)
+Completed 200 OK in 109ms (Views: 9.8ms | ActiveRecord: 3.0ms)
+
+
