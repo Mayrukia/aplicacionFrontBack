@@ -6,13 +6,15 @@ module Backend
   end
 
   def index
+  #  @presenter = ProductPresenter.new(params)
     @products = Product.all
   end
 
   def create
-    flash[:notice] = 'Creado'
     @product = Product.new(product_params)
+
     if @product.save
+      flash[:notice] = 'Creado'
       redirect_to backend_products_path
     else
       flash.now[:alert] = 'Error'
@@ -28,8 +30,8 @@ module Backend
 
   def update
     if @product.update(product_params)
-      flash[:notice] = 'Creado'
-      redirect_to @product
+      flash[:notice] = 'Éxito'
+      redirect_to [:backend, @product]
     else
       flash.now[:alert] = 'Error'
       render :edit
@@ -45,7 +47,17 @@ module Backend
   private
   def product_params
     ## strong parameters
-    params.require(:product).permit(:name, :internalCode, :category_id, :tag_id, :praice, :cost, :content, :activo)
+    params.require(:product).permit(
+      :name,
+      :internalCode,
+      :category_id,
+      :tag_id,
+      :praice,
+      :cost,
+      :description,
+      :activo,
+      :image
+    )
   end
 
   def set_product
