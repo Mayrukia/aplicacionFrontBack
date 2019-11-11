@@ -1,5 +1,5 @@
 module Backend
- class ProductsController < ApplicationController
+ class ProductsController < BackendController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   def new
     @product = Product.new
@@ -7,7 +7,7 @@ module Backend
 
   def index
   #  @presenter = ProductPresenter.new(params)
-    @products = Product.all
+    @products = Product.paginate(page: params[:page], per_page: 5)
   end
 
   def create
@@ -23,6 +23,7 @@ module Backend
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def edit

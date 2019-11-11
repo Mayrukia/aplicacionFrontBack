@@ -11,12 +11,10 @@ Rails.application.routes.draw do
   namespace :backend do
     get '/', to: 'main#index'
     resources :products
+    resources :categories
+    resources :tags
   end
 
-    namespace :backend do
-      get '/', to: 'main#index'
-      resources :categories
-    end
 
   scope module: :frontend do
     get 'product', to: 'main#product'

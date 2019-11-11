@@ -1,5 +1,5 @@
 module Backend
- class CategoriesController < ApplicationController
+ class CategoriesController < BackendController
   before_action :set_category, only: [:edit, :update, :destroy]
   def index
     @categories = Category.all
