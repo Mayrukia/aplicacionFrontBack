@@ -1,6 +1,6 @@
 # README
 
-This application uses
+## This application uses
 
 * Ruby version: ruby '2.6.1'
 
@@ -11,14 +11,16 @@ This application uses
 
 * Model and controller tests using RSpec
 
-* Deployment instructions:
+* others: Bootstrap for GUI, Devise for user authentication, Active Storage for file upload.
 
-  -To run the server in localhost:3000/
+### Deployment instructions:
+
+  * To run the server in localhost:3000/
     rails server
-   Optional:
-  -To install new dependences do: 
+  *Optional:*
+  * To install new dependences do: 
     bundle install
-  -To migrate the database do:
+  * To migrate the database do:
     rails db:seed
     rails db:migrate
     
