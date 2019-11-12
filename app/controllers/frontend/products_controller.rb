@@ -1,8 +1,7 @@
 module Frontend
  class ProductsController < FrontendController
   def index
-    @presenter = ProductPresenter.new(params)
-    byebug
+    @presenter = ProductsPresenter.new(params)
   end
 
   def show
@@ -12,7 +11,7 @@ module Frontend
   private
   def product_params
     ## strong parameters
-    params.require(:product).permit(:name,:category_id,:image)
+    params.require(:product_filter).permit(:name,:category_id,:image)
   end
  end
 end

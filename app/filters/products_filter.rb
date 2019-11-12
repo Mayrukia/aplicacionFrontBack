@@ -9,10 +9,10 @@ class ProductsFilter
   end
 
   def call
-    products = Products.all
+    products = Product.all
     products = products.with_title(@query) unless @query.blank?
     products = products.with_category(@category_id) unless @category_id.blank?
-    posts
+    products
   end
 
 end

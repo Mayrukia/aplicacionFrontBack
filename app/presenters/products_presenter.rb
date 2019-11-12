@@ -3,12 +3,12 @@ class ProductsPresenter
     @params = params
   end
 
-  def posts
-    @posts ||= filter.call.paginate(page: @params[:page], per_page: 5).decorate
+  def products
+    @products ||= filter.call.paginate(page: @params[:page], per_page: 3).decorate
   end
 
   def filter
-    @filter ||= PostsFilter.new(filter_params)
+    @filter ||= ProductsFilter.new(filter_params)
   end
 
   private
