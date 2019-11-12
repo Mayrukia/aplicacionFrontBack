@@ -15,8 +15,9 @@ Rails.application.routes.draw do
     resources :tags
   end
 
-
-  scope module: :frontend do
-    get 'product', to: 'main#product'
+  namespace :frontend do
+      get '/', to: 'main#index'
+      get 'products', to: 'products#index'
+      get 'products/:id', to: 'products#show'
   end
 end

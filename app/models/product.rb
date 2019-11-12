@@ -10,6 +10,10 @@ class Product < ApplicationRecord
 
   has_one_attached :image
 
+  #scopes
+  scope :with_title, ->(title) { where('title LIKE ?', "%#{title}%") }
+  scope :with_category, ->(category_id) { where(category_id: category_id) }
+
   def get_image
    image.attached? ? image : 'missing.png'
   end

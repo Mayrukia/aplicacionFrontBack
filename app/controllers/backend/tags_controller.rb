@@ -14,8 +14,7 @@ class TagsController < BackendController
 
   def create
     @tag = Tag.new(tag_params)
-
-    if @tag.save
+      if @tag.save
       flash[:notice] = 'Creado'
         redirect_to backend_tags_path
     else
@@ -45,5 +44,5 @@ class TagsController < BackendController
   def tag_params
     params.require(:tag).permit(:name)
   end
-end
+ end
 end

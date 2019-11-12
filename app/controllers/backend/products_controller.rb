@@ -1,13 +1,13 @@
 module Backend
  class ProductsController < BackendController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  def new
-    @product = Product.new
-  end
-
   def index
   #  @presenter = ProductPresenter.new(params)
-    @products = Product.paginate(page: params[:page], per_page: 5)
+   @products = Product.paginate(page: params[:page], per_page: 5)
+  end
+
+  def new
+    @product = Product.new
   end
 
   def create
@@ -23,7 +23,7 @@ module Backend
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id]).decorate
   end
 
   def edit
