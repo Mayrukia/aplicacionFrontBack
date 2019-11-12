@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## This application uses
 
-Things you may want to cover:
+* Ruby version: ruby '2.6.1'
 
-* Ruby version
+* Rails Version: gem 'rails', '~> 5.2.3'
 
-* System dependencies
+* Use mysql as the database for Active Record
+  gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 
-* Configuration
+* Model and controller tests using RSpec
 
-* Database creation
+* others: Bootstrap for GUI, Devise for user authentication, Active Storage for file upload.
 
-* Database initialization
+### Deployment instructions:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  * To run the server in localhost:3000/
+    rails server
+  *Optional:*
+  * To install new dependences do: 
+    bundle install
+  * To migrate the database do:
+    rails db:seed
+    rails db:migrate
+    
+  @Mayrukia
