@@ -3,7 +3,7 @@ module Backend
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
   #  @presenter = ProductPresenter.new(params)
-   @products = Product.paginate(page: params[:page], per_page: 5)
+   @products = Product.paginate(page: params[:page], per_page: 5).decorate
   end
 
   def new
