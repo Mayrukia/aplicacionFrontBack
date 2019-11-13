@@ -1,1 +1,19 @@
-jsaksjaksjka
+<h1 class='mt-2'>Usuarios</h1>
+<%= render 'flash_message' %>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th> Usuario </th>
+      <th class='text-right'><%= link_to 'Nuevo Usuario', new_backend_user_path, class: 'btn btn-dark' %></th>
+    </tr>
+    <tr>
+      <th class='text-right'><%= link_to 'Volver', backend_products_path, class: 'btn btn-dark' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
+
+<%= will_paginate @users %>

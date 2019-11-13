@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :products
     resources :categories
     resources :tags
-  #  resources :users
+    resources :users
   end
 
   namespace :frontend do
